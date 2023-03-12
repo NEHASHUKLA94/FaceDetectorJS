@@ -40,10 +40,8 @@ video.addEventListener("playing", () => {
 
   setInterval(async () => {
     const detections = await faceapi
-      .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
-      //.withFaceLandmarks()
-      //.withFaceExpressions()
-      //.withAgeAndGender();
+      .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions());
+      console.log(detections);
 
     const resizedDetections = faceapi.resizeResults(detections, displaySize);
     console.log(resizedDetections);
