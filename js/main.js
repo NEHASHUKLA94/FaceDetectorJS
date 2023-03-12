@@ -41,7 +41,7 @@ video.addEventListener("playing", () => {
   setInterval(async () => {
     const detections = await faceapi
       .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions());
-      console.log(detections);
+      console.log('length'+Object.keys(detections).length);
 
  //   const resizedDetections = faceapi.resizeResults(detections, displaySize);
   //  console.log(resizedDetections);
@@ -61,7 +61,7 @@ video.addEventListener("playing", () => {
       //document.getElementById("gender").innerText = `Gender - ${gender}`;
       //document.getElementById("emotion").innerText = `Emotion - ${emotion[0]}`;
     
-  }, 10);
+  }, 5);
 });
 
 function interpolateAgePredictions(age) {
