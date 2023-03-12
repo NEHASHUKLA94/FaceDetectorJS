@@ -37,7 +37,7 @@ video.addEventListener("playing", () => {
   setInterval(async () => {
     const detections = await faceapi
       .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions());
-      console.log(Object.keys(detections).length);
+    //  console.log(Object.keys(detections).length);
 
  //   const resizedDetections = faceapi.resizeResults(detections, displaySize);
   //  console.log(resizedDetections);
@@ -50,9 +50,9 @@ video.addEventListener("playing", () => {
 
           document.getElementById("Message").innerText = 'Hi Human Being';
       }
-   
-        document.getElementById("Message").innerText = 'Not a Human Being';
-   
+   else{
+       document.getElementById("Message").innerText = 'Not a Human Being';
+   }
       
     
   }, 5);
