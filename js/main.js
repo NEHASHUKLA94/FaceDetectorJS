@@ -43,13 +43,13 @@ video.addEventListener("playing", () => {
       .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions());
       console.log(detections);
 
-    const resizedDetections = faceapi.resizeResults(detections, displaySize);
-    console.log(resizedDetections);
+ //   const resizedDetections = faceapi.resizeResults(detections, displaySize);
+  //  console.log(resizedDetections);
 
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
 
-    faceapi.draw.drawDetections(canvas, resizedDetections);
-    faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+  //  faceapi.draw.drawDetections(canvas, resizedDetections);
+   // faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
       if (Object.keys(detections).length > 0) {
 
           document.getElementById("Message").innerText = 'Hi Human Being';
