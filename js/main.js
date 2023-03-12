@@ -4,10 +4,6 @@ let predictedAges = [];
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri("/models")
-//  faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
-//  faceapi.nets.faceRecognitionNet.loadFromUri("/models")
-//  faceapi.nets.faceExpressionNet.loadFromUri("/models"),
- // faceapi.nets.ageGenderNet.loadFromUri("/models")
 ]).then(startVideo);
 
 function startVideo() {
@@ -41,7 +37,7 @@ video.addEventListener("playing", () => {
   setInterval(async () => {
     const detections = await faceapi
       .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions());
-      console.log('length'+Object.keys(detections).length);
+      console.log(Object.keys(detections).length);
 
  //   const resizedDetections = faceapi.resizeResults(detections, displaySize);
   //  console.log(resizedDetections);
@@ -54,19 +50,11 @@ video.addEventListener("playing", () => {
 
           document.getElementById("Message").innerText = 'Hi Human Being';
       }
-    else {
+   
         document.getElementById("Message").innerText = 'Not a Human Being';
-    }
-      //document.getElementById("age").innerText = `Age - ${interpolatedAge}`;
-      //document.getElementById("gender").innerText = `Gender - ${gender}`;
-      //document.getElementById("emotion").innerText = `Emotion - ${emotion[0]}`;
+   
+      
     
   }, 5);
 });
 
-function interpolateAgePredictions(age) {
-  predictedAges = [age].concat(predictedAges).slice(0, 30);
-  const avgPredictedAge =
-    predictedAges.reduce((total, a) => total + a) / predictedAges.length;
-  return avgPredictedAge;
-}
