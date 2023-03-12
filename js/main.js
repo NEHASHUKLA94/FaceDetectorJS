@@ -68,6 +68,8 @@ video.addEventListener("playing", () => {
      //   document.getElementById("Message").innerText = 'Not a Human Being';
    
     }
+    else{ document.getElementById("Message").innerText = 'Not a Human Being';
+    }
   }, 10);
 });
 
