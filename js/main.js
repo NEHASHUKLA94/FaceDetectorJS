@@ -49,7 +49,7 @@ video.addEventListener("playing", () => {
     console.log(resizedDetections);
 
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-    const message='Not Human Being';
+    let message='Not Human Being';
     faceapi.draw.drawDetections(canvas, resizedDetections);
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
     if (resizedDetections && Object.keys(resizedDetections).length > 0) {
