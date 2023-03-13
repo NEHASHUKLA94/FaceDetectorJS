@@ -49,7 +49,7 @@ video.addEventListener("playing", () => {
     console.log(resizedDetections);
 
     canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-
+    const message='Not Human Being';
     faceapi.draw.drawDetections(canvas, resizedDetections);
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
     if (resizedDetections && Object.keys(resizedDetections).length > 0) {
@@ -58,17 +58,14 @@ video.addEventListener("playing", () => {
       const gender = resizedDetections.gender;
       const expressions = resizedDetections.expressions;
       const maxValue = Math.max(...Object.values(expressions));
+       message='Hi Human Being';
       const emotion = Object.keys(expressions).filter(
         item => expressions[item] === maxValue
       );
-      
-          document.getElementById("Message").innerText = 'Hi Human Being';
-      
-   
-     //   document.getElementById("Message").innerText = 'Not a Human Being';
-   
-    }
-    else{ document.getElementById("Message").innerText = 'Not a Human Being';
+      document.getElementById("age").innerText = `Age - ${interpolatedAge}`;
+      document.getElementById("gender").innerText = `Gender - ${gender}`;
+      document.getElementById("emotion").innerText = `Emotion - ${emotion[0]}`;
+      document.getElementById("Message").innerText = `${message}`;
     }
   }, 10);
 });
